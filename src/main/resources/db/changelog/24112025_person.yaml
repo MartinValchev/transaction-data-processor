@@ -1,0 +1,18 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2
+      author: martin.valchev
+      changes:
+        - addColumn:
+            tableName: person
+            columns:
+              - column:
+                  name: created_date
+                  type: TIMESTAMP
+                  nullable: false
+                  defaultValue: NOW()
+              - column:
+                  name: modified_date
+                  type: TIMESTAMP
+                  nullable: false
+                  defaultValue: NOW()

@@ -39,7 +39,7 @@ public class PersonConfiguration {
     }
 
     @Bean
-    public JdbcBatchItemWriter<Person> wrtier() {
+    public JdbcBatchItemWriter<Person> writer() {
         return new JdbcBatchItemWriterBuilder<Person>()
                 .itemSqlParameterSourceProvider(new BeanPropertyItemSqlParameterSourceProvider<>())
                 .sql("INSERT INTO person (id, person_id, first_name, last_name, street, city, state, postal_code, postal_code, telephone, email) " +

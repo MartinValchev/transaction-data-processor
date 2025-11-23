@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
@@ -25,4 +26,6 @@ public class Person {
     private String postalCode;
     private String telephone;
     private String email;
+    private LocalDateTime createdDate;
+    private LocalDateTime modifiedDate;
 }
