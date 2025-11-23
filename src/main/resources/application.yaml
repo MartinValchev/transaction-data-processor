@@ -2,7 +2,7 @@ spring:
   application:
     name: transaction-data-processor
   datasource:
-    url: jdbc:mysql://localhost:3306/my_batch_db
+    url: jdbc:mysql://localhost:3306/batch_transaction_db
     username: root
     password: Password123@
     driver-class-name: com.mysql.cj.jdbc.Driver
