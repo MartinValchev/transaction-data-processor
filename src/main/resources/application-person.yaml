@@ -1,0 +1,4 @@
+spring:
+  person:
+    chunk-size: 1000;
+    file-patten: "*person_data*"

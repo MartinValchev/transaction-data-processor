@@ -8,6 +8,8 @@ import org.jspecify.annotations.Nullable;
 import org.springframework.batch.infrastructure.item.ItemProcessor;
 import org.springframework.stereotype.Component;
 
+import java.util.UUID;
+
 @Component
 @AllArgsConstructor
 public class PersonProcessor implements ItemProcessor<PersonDto, Person> {
@@ -17,6 +19,7 @@ public class PersonProcessor implements ItemProcessor<PersonDto, Person> {
     @Override
     public @Nullable Person process(PersonDto item) throws Exception {
         Person person = mapper.mapPersonDto(item);
+        person.setId(UUID.randomUUID());
         return person;
     }
 }
