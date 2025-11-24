@@ -1,3 +1,5 @@
 databaseChangeLog:
   - include:
       file:  classpath:db/changelog/23112025_person.yaml
+  - include:
+      file: classpath:db/changelog/24112025_person.yaml

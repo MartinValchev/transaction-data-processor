@@ -12,7 +12,7 @@ public interface GenericDao<T> {
     List<T> findAll();
     T update(T entity);
     UUID save(T entity);
-    UUID deleteByEntityId(Long entityId);
+    Long deleteByEntityId(Long entityId);
     void batchInsert(List<T> entities);
 
     RowMapper<T> getRowMapper();
