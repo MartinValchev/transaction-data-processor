@@ -33,7 +33,6 @@ public class PersonProcessor implements ItemProcessor<PersonDto, Person> {
             mappedPerson.setId(personById.getId());
             mappedPerson.setCreatedDate(personById.getCreatedDate());
         } else {
-            mappedPerson.setId(UUID.randomUUID());
             mappedPerson.setCreatedDate(LocalDateTime.now());
         }
         mappedPerson.setModifiedDate(LocalDateTime.now());

@@ -15,5 +15,7 @@ public interface GenericDao<T> {
     Long deleteByEntityId(Long entityId);
     void batchInsert(List<T> entities);
 
+    void batchUpdate(List<T> entities);
+
     RowMapper<T> getRowMapper();
 }

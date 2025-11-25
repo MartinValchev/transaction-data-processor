@@ -20,6 +20,9 @@ public class PersonDao implements GenericDao<Person>{
     private static final String INSERT_SQL = "INSERT INTO from person (id, personId, first_name, last_name, street, city, state, postal_code, " +
             "telephone, email, created_date, modified_date) VALUES ?,?,?,?,?,?,?,?,?,?,?,?";
 
+    private static final String UPDATE_SQL = "UPDATE person SET person_id = ?  first_name = ?, last_name = ?, street = ?, city = ?, state = ?, postal_code = ?, " +
+            "telephone = ?, email = ?, created_date = ?, modified_date = ?";
+
     private JdbcTemplate jdbcTemplate;
 
     @Override
@@ -81,6 +84,24 @@ public class PersonDao implements GenericDao<Person>{
                 ps.setTimestamp(12, Timestamp.from(person.getCreatedDate().toInstant(ZoneOffset.UTC)));
             });
         }
+
+    @Override
+    public void batchUpdate(List<Person> entities) {
+        jdbcTemplate.batchUpdate(UPDATE_SQL, entities, entities.size(),
+                (PreparedStatement ps, Person person) -> {
+                    ps.setLong(1, person.getPersonId());
+                    ps.setString(2, person.getFirstName());
+                    ps.setString(3, person.getLastName());
+                    ps.setString(4, person.getStreet());
+                    ps.setString(5, person.getCity());
+                    ps.setString(6, person.getState());
+                    ps.setString(7, person.getPostalCode());
+                    ps.setString(8, person.getTelephone());
+                    ps.setString(9, person.getEmail());
+                    ps.setTimestamp(10, Timestamp.from(person.getCreatedDate().toInstant(ZoneOffset.UTC)));
+                    ps.setTimestamp(11, Timestamp.from(person.getCreatedDate().toInstant(ZoneOffset.UTC)));
+                });
+    }
 
     @Override
     public RowMapper<Person> getRowMapper() {
