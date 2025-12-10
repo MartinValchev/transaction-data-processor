@@ -1,4 +1,5 @@
 spring:
   person:
+    base-path: "D:\courses\springCloudProjects\sample_data"
     chunk-size: 1000;
     file-patten: "*person_data*"
